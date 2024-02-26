@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAGE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* CSS styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Nunito', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5; /* Light gray background */
@@ -18,6 +19,9 @@
             color: #fff; /* White text color */
             padding: 10px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         footer {
             background-color: #8f9779; /* Sage green footer background */
@@ -35,6 +39,7 @@
             background-color: #fff; /* White container background */
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for container */
+            margin-bottom: 50px; /* Added empty space at the bottom */
         }
         h1 {
             color: #355e3b; /* Darker green header text color */
@@ -45,8 +50,7 @@
         img.logo {
             max-width: 100px; /* Adjust the size of logo as needed */
             height: auto;
-            display: block;
-            margin: 0 auto 10px; /* Center the logo and add margin below */
+            margin-right: 10px; /* Added margin to separate logo and text */
         }
         .image-container {
             display: flex;
@@ -69,6 +73,25 @@
             border-radius: 5px; /* Rounded corners for text box placeholders */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for text box placeholders */
         }
+        .email-form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .email-input {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #8f9779;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +101,11 @@
     </header>
     
     <div class="container">
+        <div class="email-form">
+            <input type="email" class="email-input" placeholder="Enter your email">
+            <button class="submit-btn">Submit</button>
+        </div>
+
         <div class="text-box">
             <h2>About SAGE</h2>
             <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
@@ -87,7 +115,6 @@
             <img src="mock1.png" alt="Image 1"> <!-- Replace "image1.png" with the path to your image -->
             <img src="mock2.png" alt="Image 2"> <!-- Replace "image2.png" with the path to your image -->
             <img src="mock3.png" alt="Image 3"> <!-- Replace "image3.png" with the path to your image -->
-
         </div>
         
         <div class="text-box">
@@ -114,7 +141,6 @@
         <div class="image-container">
             <img src="Footer Picture.jpg" alt="Nature Picture" style="width: 100%; height: auto;"> <!-- Replace "Footer Picture.jpg" with the path to your image -->
         </div>
-
 
         
         <div class="text-box">
