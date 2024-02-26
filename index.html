@@ -125,7 +125,12 @@
     </div>
     
     <footer>
-        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved.</p>
+        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
     </footer>
+    
+    <script>
+        document.getElementById("lastUpdated").innerHTML = document.lastModified;
+    </script>
+
 </body>
 </html>
