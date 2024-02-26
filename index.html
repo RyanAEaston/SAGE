@@ -16,7 +16,7 @@
         header {
             background-color: #8f9779; /* Sage green header background */
             color: #fff; /* White text color */
-            padding: 20px;
+            padding: 10px;
             text-align: center;
         }
         footer {
@@ -48,6 +48,15 @@
             display: block;
             margin: 0 auto 10px; /* Center the logo and add margin below */
         }
+        .image-container {
+            display: flex;
+            justify-content: space-between; /* Align images with equal space between them */
+            margin-bottom: 20px; /* Margin below the image container */
+        }
+        .image-container img {
+            max-width: 30%; /* Adjust the width of each image */
+            height: auto;
+        }
         .image-placeholder {
             background-color: #ddd; /* Gray background for image placeholders */
             height: 200px; /* Height of image placeholders */
@@ -65,7 +74,7 @@
 <body>
     <header>
         <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
-        <h1>Welcome to SAGE</h1>
+        <h1>Introducing SAGE</h1>
     </header>
     
     <div class="container">
@@ -84,7 +93,11 @@
             <p>Here, you can showcase the results or achievements of your startup.</p>
         </div>
 
-        <div class="image-placeholder"></div> <!-- Image Placeholder -->
+        <div class="image-container">
+            <img src="image1.jpg" alt="Image 1"> <!-- Replace "image1.jpg" with the path to your image -->
+            <img src="image2.jpg" alt="Image 2"> <!-- Replace "image2.jpg" with the path to your image -->
+            <img src="image3.jpg" alt="Image 3"> <!-- Replace "image3.jpg" with the path to your image -->
+        </div>
 
         <div class="text-box">
             <h2>Our Team</h2>
