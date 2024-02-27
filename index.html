@@ -72,9 +72,9 @@
         }
         .image-container img {
             max-height: 100%; /* Limit image height to container height */
-            width: auto; /* Allow image width to adjust according to height */
-            max-width: none; /* Allow images to exceed their intrinsic width */
+            max-width: 100%; /* Limit image width to container width */
             margin: 0 auto; /* Center the image horizontally */
+            display: block; /* Ensure the image behaves as a block element */
         }
         .prev, .next {
             position: absolute;
@@ -157,11 +157,7 @@
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
-        
-        <div class="footer-image">
-            <img src="Footer Picture.jpg" alt="Footer Image">
-        </div>
-        
+
         <div class="text-box">
             <h2>Our Results</h2>
             <p>Showcase the results here.</p>
@@ -186,7 +182,8 @@
         </div>
     </div>
     
-    <footer>
+    <footer class="footer-image">
+        <img src="Footer Picture.jpg" alt="Footer Image">
         <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
     </footer>
     
