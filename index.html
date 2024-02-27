@@ -59,19 +59,19 @@
             overflow: hidden;
             position: relative;
             margin-bottom: 20px;
-            height: 200px; /* Set the height of the gallery */
         }
         .image-container {
             flex: 1;
-            opacity: 0.2; /* Initial opacity */
+            opacity: 0.3;
             transition: opacity 0.3s ease;
-            height: 100%; /* Set the height of the image container */
+        }
+        .image-container.middle {
+            opacity: 1;
         }
         .image-container img {
-            width: auto;
-            height: 100%; /* Set the height of the images */
+            width: 100%;
+            height: auto;
             display: block;
-            margin: 0 auto; /* Center the images horizontally */
         }
         .prev, .next {
             position: absolute;
@@ -113,16 +113,6 @@
             cursor: pointer;
             font-family: 'Nunito', Arial, sans-serif; /* Use Nunito font */
         }
-        .wide-image-box {
-            margin-bottom: 20px;
-        }
-        .wide-image-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 5px;
-        }
-
     </style>
 </head>
 <body>
@@ -137,16 +127,12 @@
             <button class="submit-btn" onclick="submitEmail()">Submit</button>
         </div>
 
-        <div class="wide-image-box">
-            <img src="Footer Picture.jpg" alt="Wide Image">
-        </div>
-
         <div class="image-gallery">
             <button class="prev" onclick="move(-1)">&#10094; Prev</button>
             <div class="image-container">
                 <img src="mock1.png" alt="Image 1">
             </div>
-            <div class="image-container">
+            <div class="image-container middle">
                 <img src="mock2.png" alt="Image 2">
             </div>
             <div class="image-container">
@@ -167,6 +153,9 @@
 
         <div class="text-box">
             <h2>Our Results</h2>
+            <div class="footer-image-container">
+                <img src="Footer Picture.jpg" alt="Footer Picture" style="width: 100%; height: auto;">
+            </div>
             <p>Showcase the results here.</p>
         </div>
 
@@ -195,10 +184,13 @@
     
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
-
+    
         let currentIndex = 1;
         const images = document.querySelectorAll('.image-container');
-
+    
+        // Set the middle image opacity to full on page load
+        images[currentIndex].style.opacity = 1;
+    
         function move(direction) {
             currentIndex += direction;
             if (currentIndex < 0) {
@@ -208,19 +200,21 @@
             }
             updateGallery();
         }
-
+    
         function updateGallery() {
             images.forEach((image, index) => {
                 let distance = Math.abs(index - currentIndex);
-                let opacity = 1 - (distance * 0.2);
+                let opacity = (distance === 1) ? 1 : 0.3; // Set opacity based on distance
                 image.style.opacity = opacity;
             });
+            images[currentIndex].style.opacity = 1; // Make the middle image fully opaque
         }
-
+    
         function submitEmail() {
             alert("You're Signed up for Our Newsletter!");
             document.getElementById("emailInput").value = ""; // Clear the email input field
         }
     </script>
+
 </body>
 </html>
