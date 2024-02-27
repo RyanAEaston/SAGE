@@ -21,7 +21,7 @@
             text-align: center;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between; /* Align items to the center and create space between them */
         }
         footer {
             background-color: #8f9779; /* Sage green footer background */
@@ -43,13 +43,6 @@
             font-size: 2rem; /* Larger font size for title */
             font-family: cursive; /* Using cursive font for the title */
             margin: 0; /* Removed margin for h1 */
-        }
-        footer h2 {
-            font-size: 1rem; /* Adjusted font size for footer header */
-        }
-        h2 {
-            font-size: 1.5rem; /* Smaller font size for headers */
-            color: #8f9779; /* Sage green header text color */
         }
         img.logo {
             max-width: 100px; /* Adjust the size of logo as needed */
@@ -131,12 +124,33 @@
         .email-form h2 {
             font-size: 1.2rem; /* Smaller font size for the email form header */
         }
+
+        /* Social media buttons */
+        .social-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .social-button {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .social-button img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <header>
         <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
         <h1>Introducing SAGE</h1>
+        <div class="social-buttons">
+            <div class="social-button"><a href="#"><img src="facebook_icon.png" alt="Facebook"></a></div>
+            <div class="social-button"><a href="#"><img src="instagram_icon.png" alt="Instagram"></a></div>
+            <div class="social-button"><a href="#"><img src="twitter_icon.png" alt="Twitter"></a></div>
+        </div>
     </header>
     
     <div class="container">
