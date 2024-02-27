@@ -59,13 +59,14 @@
             overflow: hidden;
             position: relative;
             margin-bottom: 20px;
+            max-height: 300px; /* Restricting the height of the image gallery */
         }
         .image-container {
             flex: 1;
-            opacity: 0.3;
+            opacity: 0.5;
             transition: opacity 0.3s ease;
         }
-        .image-container.middle {
+        .image-container:hover {
             opacity: 1;
         }
         .image-container img {
@@ -113,6 +114,15 @@
             cursor: pointer;
             font-family: 'Nunito', Arial, sans-serif; /* Use Nunito font */
         }
+        .footer-image {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .footer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -122,17 +132,17 @@
     </header>
     
     <div class="container">
-        <div class="email-form">
-            <input id="emailInput" type="email" class="email-input" placeholder="Enter your email">
-            <button class="submit-btn" onclick="submitEmail()">Submit</button>
+        <div class="text-box">
+            <h2>About SAGE</h2>
+            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
         </div>
-
+        
         <div class="image-gallery">
             <button class="prev" onclick="move(-1)">&#10094; Prev</button>
             <div class="image-container">
                 <img src="mock1.png" alt="Image 1">
             </div>
-            <div class="image-container middle">
+            <div class="image-container">
                 <img src="mock2.png" alt="Image 2">
             </div>
             <div class="image-container">
@@ -142,20 +152,16 @@
         </div>
 
         <div class="text-box">
-            <h2>About SAGE</h2>
-            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
-        </div>
-
-        <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
-
+        
+        <div class="footer-image">
+            <img src="Footer Picture.jpg" alt="Footer Image">
+        </div>
+        
         <div class="text-box">
             <h2>Our Results</h2>
-            <div class="footer-image-container">
-                <img src="Footer Picture.jpg" alt="Footer Picture" style="width: 100%; height: auto;">
-            </div>
             <p>Showcase the results here.</p>
         </div>
 
@@ -184,13 +190,13 @@
     
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
-    
+
         let currentIndex = 1;
         const images = document.querySelectorAll('.image-container');
-    
+
         // Set the middle image opacity to full on page load
         images[currentIndex].style.opacity = 1;
-    
+
         function move(direction) {
             currentIndex += direction;
             if (currentIndex < 0) {
@@ -200,7 +206,7 @@
             }
             updateGallery();
         }
-    
+
         function updateGallery() {
             images.forEach((image, index) => {
                 let distance = Math.abs(index - currentIndex);
@@ -209,12 +215,11 @@
             });
             images[currentIndex].style.opacity = 1; // Make the middle image fully opaque
         }
-    
+
         function submitEmail() {
             alert("You're Signed up for Our Newsletter!");
             document.getElementById("emailInput").value = ""; // Clear the email input field
         }
     </script>
-
 </body>
 </html>
