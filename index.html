@@ -66,15 +66,13 @@
             opacity: 0.3; /* Initially set opacity to 0.3 */
             transition: opacity 0.3s ease;
             height: 100%; /* Ensure each image container fills the gallery height */
-            max-width: 100%; /* Ensure images don't exceed container width */
             text-align: center; /* Center images horizontally */
             overflow: hidden; /* Hide overflow */
         }
         .image-container img {
             max-height: 100%; /* Limit image height to container height */
-            max-width: 100%; /* Limit image width to container width */
-            margin: 0 auto; /* Center the image horizontally */
-            display: block; /* Ensure the image behaves as a block element */
+            width: auto; /* Allow the width to adjust to maintain aspect ratio */
+            display: inline-block; /* Ensure the image behaves as a block element */
         }
         .prev, .next {
             position: absolute;
