@@ -52,26 +52,46 @@
             height: auto;
             margin-right: 10px; /* Added margin to separate logo and text */
         }
-        .image-container {
+        .image-gallery {
             display: flex;
-            justify-content: space-between; /* Align images with equal space between them */
-            margin-bottom: 20px; /* Margin below the image container */
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            flex: 1;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .image-container:hover {
+            opacity: 1;
         }
         .image-container img {
-            max-width: 30%; /* Adjust the width of each image */
+            width: 100%;
             height: auto;
+            display: block;
         }
-        .image-placeholder {
-            background-color: #ddd; /* Gray background for image placeholders */
-            height: 200px; /* Height of image placeholders */
-            margin-bottom: 20px; /* Margin below image placeholders */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
         }
-        .text-box {
-            background-color: #f9f9f9; /* Light gray background for text box placeholders */
-            padding: 20px; /* Padding for text box placeholders */
-            margin-bottom: 20px; /* Margin below text box placeholders */
-            border-radius: 5px; /* Rounded corners for text box placeholders */
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for text box placeholders */
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
         }
         .email-form {
             margin-bottom: 20px;
@@ -92,11 +112,6 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .footer-image-container {
-            display: flex;
-            justify-content: center; /* Center items horizontally */
-            margin-bottom: 20px; /* Margin below the image container */
-        }
     </style>
 </head>
 <body>
@@ -107,9 +122,22 @@
     
     <div class="container">
         <div class="email-form">
-            <p>Sign Up for Our Newsletter!</p>
-            <input type="email" class="email-input" placeholder="Enter your email">
-            <button class="submit-btn" onclick="showNotification()">Submit</button>
+            <input id="emailInput" type="email" class="email-input" placeholder="Enter your email">
+            <button class="submit-btn" onclick="submitEmail()">Submit</button>
+        </div>
+
+        <div class="image-gallery">
+            <button class="prev" onclick="move(-1)">&#10094; Prev</button>
+            <div class="image-container">
+                <img src="mock1.png" alt="Image 1">
+            </div>
+            <div class="image-container">
+                <img src="mock2.png" alt="Image 2">
+            </div>
+            <div class="image-container">
+                <img src="mock3.png" alt="Image 3">
+            </div>
+            <button class="next" onclick="move(1)">Next &#10095;</button>
         </div>
 
         <div class="text-box">
@@ -117,12 +145,6 @@
             <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
         </div>
 
-        <div class="image-container">
-            <img src="mock1.png" alt="Image 1"> <!-- Replace "image1.png" with the path to your image -->
-            <img src="mock2.png" alt="Image 2"> <!-- Replace "image2.png" with the path to your image -->
-            <img src="mock3.png" alt="Image 3"> <!-- Replace "image3.png" with the path to your image -->
-        </div>
-        
         <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
@@ -143,12 +165,7 @@
                 <li>Hyeri - Research Lead</li>
             </ul>
         </div>
-        
-        <div class="image-container footer-image-container">
-            <img src="Footer Picture.jpg" alt="Nature Picture" style="width: 100%; height: auto;"> <!-- Replace "Footer Picture.jpg" with the path to your image -->
-        </div>
 
-        
         <div class="text-box">
             <h2>Contact Us</h2>
             <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
@@ -163,11 +180,32 @@
     
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
-        
-        function showNotification() {
+
+        let currentIndex = 1;
+        const images = document.querySelectorAll('.image-container');
+
+        function move(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            } else if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+            updateGallery();
+        }
+
+        function updateGallery() {
+            images.forEach((image, index) => {
+                let distance = Math.abs(index - currentIndex);
+                let opacity = 1 - (distance * 0.2);
+                image.style.opacity = opacity;
+            });
+        }
+
+        function submitEmail() {
             alert("You're Signed up for Our Newsletter!");
+            document.getElementById("emailInput").value = ""; // Clear the email input field
         }
     </script>
-
 </body>
 </html>
