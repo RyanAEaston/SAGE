@@ -11,7 +11,7 @@
             font-family: 'Nunito', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5; /* Light gray background */
+            background-color: #f0f0f0; /* Light gray background */
             color: #333; /* Dark text color */
             overflow-x: hidden; /* Hide horizontal scrollbar */
         }
@@ -23,10 +23,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: fixed; /* Fixed position */
+            top: 0; /* Position at the top */
+            left: 0;
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure header is above other content */
         }
         footer {
-            background-color: #8f9779; /* Sage green footer background */
-            color: #fff; /* White text color */
+            background-color: #f0f0f0; /* Light gray footer background */
+            color: #333; /* Dark text color */
             padding: 10px 20px;
             text-align: center;
             width: 100%;
@@ -47,9 +52,9 @@
         }
         .container {
             max-width: 800px;
-            margin: 20px auto 20px; /* Adjusted margin */
+            margin: 120px auto 20px; /* Adjusted margin */
             padding: 20px;
-            background-color: #f0f0f0; /* Light gray background */
+            background-color: #fff; /* White background */
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for container */
         }
@@ -58,7 +63,7 @@
             color: #8f9779; /* Sage green header text color */
         }
         .text-box {
-            background-color: #fff; /* White background for text boxes */
+            background-color: #f0f0f0; /* Light gray background for text boxes */
             padding: 20px;
             border-radius: 5px; /* Rounded corners for text boxes */
             margin-bottom: 20px; /* Added space between text boxes */
@@ -132,6 +137,28 @@
         .email-form h2 {
             font-size: 1.2rem; /* Smaller font size for the email form header */
         }
+        .social-buttons {
+            position: fixed; /* Fixed position */
+            top: 50%; /* 50% from the top */
+            right: 20px; /* 20px from the right */
+            transform: translateY(-50%); /* Adjust vertical position */
+            z-index: 1000; /* Ensure buttons are above other content */
+        }
+        .social-button {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #3b5998; /* Facebook blue */
+            color: #fff; /* White text color */
+            text-align: center;
+            line-height: 40px; /* Center vertically */
+            border-radius: 50%; /* Circular shape */
+            margin-bottom: 10px; /* Margin between buttons */
+            text-decoration: none; /* Remove default link underline */
+        }
+        .social-button:hover {
+            background-color: #2d4373; /* Darker blue on hover */
+        }
     </style>
 </head>
 <body>
@@ -139,6 +166,12 @@
         <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
         <h1 class="title">Introducing SAGE</h1>
     </header>
+
+    <div class="social-buttons">
+        <a class="social-button" href="#">F</a>
+        <a class="social-button" href="#">I</a>
+        <a class="social-button" href="#">X</a>
+    </div>
 
     <div class="container">
         <div class="email-form">
