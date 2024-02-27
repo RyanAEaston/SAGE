@@ -66,14 +66,14 @@
             opacity: 0.3; /* Initially set opacity to 0.3 */
             transition: opacity 0.3s ease;
             height: 100%; /* Ensure each image container fills the gallery height */
-        }
-        .image-container:hover {
-            opacity: 1;
+            max-width: 100%; /* Ensure images don't exceed container width */
+            text-align: center; /* Center images horizontally */
+            overflow: hidden; /* Hide overflow */
         }
         .image-container img {
+            max-height: 100%; /* Limit image height to container height */
             width: auto; /* Allow image width to adjust according to height */
-            height: 100%; /* Fill the container height */
-            display: block;
+            max-width: none; /* Allow images to exceed their intrinsic width */
             margin: 0 auto; /* Center the image horizontally */
         }
         .prev, .next {
@@ -196,9 +196,6 @@
         let currentIndex = 1;
         const images = document.querySelectorAll('.image-container');
 
-        // Set the middle image opacity to full on page load
-        images[currentIndex].style.opacity = 1;
-
         function move(direction) {
             currentIndex += direction;
             if (currentIndex < 0) {
@@ -212,10 +209,9 @@
         function updateGallery() {
             images.forEach((image, index) => {
                 let distance = Math.abs(index - currentIndex);
-                let opacity = (distance === 1) ? 1 : 0.3; // Set opacity based on distance
+                let opacity = (distance === 0) ? 1 : 0.3; // Set opacity based on distance
                 image.style.opacity = opacity;
             });
-            images[currentIndex].style.opacity = 1; // Make the middle image fully opaque
         }
     </script>
 </body>
