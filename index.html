@@ -54,8 +54,10 @@
         }
         .image-container {
             display: flex;
-            justify-content: space-between; /* Align images with equal space between them */
+            justify-content: center; /* Center items horizontally */
             margin-bottom: 20px; /* Margin below the image container */
+        }
+
         }
         .image-container img {
             max-width: 30%; /* Adjust the width of each image */
@@ -102,8 +104,9 @@
     
     <div class="container">
         <div class="email-form">
-            <input type="email" class="email-input" placeholder="Enter your email">
-            <button class="submit-btn">Submit</button>
+            <p>Sign Up for Our Newsletter!</p>
+            <input type="email" class="email-input" id="email" placeholder="Enter your email">
+            <button class="submit-btn" onclick="showNotification()">Submit</button>
         </div>
 
         <div class="text-box">
