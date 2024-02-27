@@ -64,15 +64,13 @@
             height: 300px; /* Adjust the height of the slider as needed */
             position: relative;
             overflow: hidden; /* Hide any overflow */
-            text-align: center; /* Center the images horizontally */
         }
         .slider img {
+            width: auto; /* Maintain aspect ratio */
             height: 300px; /* Set height equal to slider height */
-            max-width: none; /* Disable max-width to prevent image shrinking */
             position: absolute;
             top: 0;
-            left: 50%; /* Move images to the center horizontally */
-            transform: translateX(-50%); /* Adjust horizontal position */
+            left: 0;
             opacity: 0; /* Initially hide all images */
             transition: opacity 0.5s ease; /* Smooth transition effect */
         }
@@ -120,8 +118,8 @@
             <img id="img-1" src="Mock1.png" alt="Image 1" class="active">
             <img id="img-2" src="Mock2.png" alt="Image 2">
             <img id="img-3" src="Mock3.png" alt="Image 3">
-            <img id="img-4" src="Mock4.png" alt="Image 3">
-            <img id="img-5" src="Mock5.png" alt="Image 3">
+            <img id="img-4" src="Mock4.png" alt="Image 4">
+            <img id="img-5" src="Mock5.png" alt="Image 5">
         </div>
         <div class="navigation-button">
             <span class="dot active" onclick="changeSlide(0)"></span>
