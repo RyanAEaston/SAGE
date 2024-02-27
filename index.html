@@ -125,8 +125,32 @@
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
 
-        <!-- Other text boxes go here -->
+        <div class="footer-image">
+            <img src="Footer Picture.jpg" alt="Footer Image">
+        </div>
 
+        <div class="text-box">
+            <h2>Our Results</h2>
+            <p>Showcase the results here.</p>
+        </div>
+
+        <div class="text-box">
+            <h2>Our Team</h2>
+            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
+            <ul>
+                <li>Afia - Business Lead</li>
+                <li>Emily - UX Lead</li>
+                <li>Matthew - Tech Lead</li>
+                <li>Hyeri - Research Lead</li>
+            </ul>
+        </div>
+
+        <div class="text-box">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
+            <p>Email: info@sagewellness.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
     </div>
     
     <footer>
@@ -138,8 +162,8 @@
 
         var imgs = document.querySelectorAll('.image-slider img');
         var dots = document.querySelectorAll('.dot');
-        var currentImg = 0; // index of the first image
-        var interval = 3000; // duration(speed) of the slide
+        var currentImg = 0; // index of the first image 
+        const interval = 3000; // duration(speed) of the slide
         var timer = setInterval(changeSlide, interval);
 
         function changeSlide(n) {
@@ -148,15 +172,11 @@
                 dots[i].classList.remove('active');
             }
 
-            currentImg = (n !== undefined) ? n : (currentImg + 1) % imgs.length; // update the index number
-
-            if (currentImg < 0) {
-                currentImg = imgs.length - 1;
-            }
+            currentImg = (n != undefined) ? n : (currentImg + 1) % imgs.length;
 
             imgs[currentImg].classList.add('active');
             dots[currentImg].classList.add('active');
-
+            
             if (n !== undefined) {
                 clearInterval(timer);
                 timer = setInterval(changeSlide, interval);
