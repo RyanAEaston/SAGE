@@ -18,9 +18,22 @@
         header {
             background-color: #8f9779; /* Sage green header background */
             color: #fff; /* White text color */
-            padding: 20px 0; /* Adjusted padding */
+            padding: 5px 10px; /* Adjusted padding */
             text-align: center;
-            z-index: 1000; /* Ensure header is above other content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        footer {
+            background-color: #8f9779; /* Sage green footer background */
+            color: #fff; /* White text color */
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed; /* Fixed position */
+            bottom: 0; /* Position at the bottom */
+            left: 0;
+            z-index: 1000; /* Ensure footer is above other content */
         }
         .logo {
             max-width: 100px; /* Adjust the size of logo as needed */
@@ -31,24 +44,6 @@
             font-size: 2rem; /* Larger font size for title */
             font-family: cursive; /* Using cursive font for the title */
             margin: 0; /* Removed margin for h1 */
-        }
-        .social-media-icons {
-            position: fixed; /* Fixed position */
-            top: 50%; /* Position at the center vertically */
-            right: 0; /* Position at the right side */
-            transform: translateY(-50%); /* Center vertically */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1000; /* Ensure icons are above other content */
-        }
-        .social-media-icons a {
-            margin: 10px 0;
-            display: block;
-        }
-        .social-media-icons img {
-            width: 30px;
-            height: 30px;
         }
         .container {
             max-width: 800px;
@@ -112,23 +107,6 @@
         .dot:hover {
             background-color: #717171; /* Darker color for active dot */
         }
-        .footer {
-            background-color: #8f9779; /* Sage green footer background */
-            color: #fff; /* White text color */
-            padding: 10px 20px;
-            text-align: center;
-            width: 100%;
-            position: fixed; /* Fixed position */
-            bottom: 0; /* Position at the bottom */
-            left: 0;
-            z-index: 1000; /* Ensure footer is above other content */
-        }
-        .footer p {
-            margin: 0;
-        }
-        .footer span {
-            font-weight: bold;
-        }
         .footer-image {
             text-align: center;
             margin-top: 20px;
@@ -158,17 +136,9 @@
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
-            <h1 class="title">Introducing SAGE</h1>
-        </div>
+        <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
+        <h1 class="title">Introducing SAGE</h1>
     </header>
-
-    <div class="social-media-icons">
-        <a href="#"><img src="facebook_icon.png" alt="Facebook"></a>
-        <a href="#"><img src="instagram_icon.png" alt="Instagram"></a>
-        <a href="#"><img src="twitter_icon.png" alt="Twitter"></a>
-    </div>
 
     <div class="container">
         <div class="email-form">
