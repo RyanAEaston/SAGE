@@ -64,6 +64,7 @@
             height: 300px; /* Adjust the height of the slider as needed */
             position: relative;
             overflow: hidden; /* Hide any overflow */
+            margin-top: 20px; /* Move slider below About Sage section */
         }
         .slider img {
             width: auto; /* Maintain aspect ratio */
@@ -71,10 +72,11 @@
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto; /* Center horizontally and vertically */
             opacity: 0; /* Initially hide all images */
             transition: opacity 0.5s ease; /* Smooth transition effect */
-            display: block;
-            margin: 0 auto; /* Center the images */
         }
         .slider img.active {
             opacity: 1; /* Show active image */
@@ -129,6 +131,11 @@
     </header>
 
     <div class="container">
+        <div class="text-box">
+            <h2>About SAGE</h2>
+            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
+        </div>
+        
         <div class="email-form">
             <h2>Subscribe to Our Newsletter</h2>
             <form id="newsletter-form">
@@ -145,6 +152,7 @@
             <img id="img-4" src="Mock4.png" alt="Image 4">
             <img id="img-5" src="Mock5.png" alt="Image 5">
         </div>
+
         <div class="navigation-button">
             <span class="dot active" onclick="changeSlide(0)"></span>
             <span class="dot" onclick="changeSlide(1)"></span>
@@ -153,11 +161,6 @@
             <span class="dot" onclick="changeSlide(4)"></span>
         </div>
 
-        <div class="text-box">
-            <h2>About SAGE</h2>
-            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
-        </div>
-        
         <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
