@@ -54,10 +54,8 @@
         }
         .image-container {
             display: flex;
-            justify-content: center; /* Center items horizontally */
+            justify-content: space-between; /* Align images with equal space between them */
             margin-bottom: 20px; /* Margin below the image container */
-        }
-
         }
         .image-container img {
             max-width: 30%; /* Adjust the width of each image */
@@ -94,6 +92,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .footer-image-container {
+            display: flex;
+            justify-content: center; /* Center items horizontally */
+            margin-bottom: 20px; /* Margin below the image container */
+        }
     </style>
 </head>
 <body>
@@ -105,7 +108,7 @@
     <div class="container">
         <div class="email-form">
             <p>Sign Up for Our Newsletter!</p>
-            <input type="email" class="email-input" id="email" placeholder="Enter your email">
+            <input type="email" class="email-input" placeholder="Enter your email">
             <button class="submit-btn" onclick="showNotification()">Submit</button>
         </div>
 
@@ -141,7 +144,7 @@
             </ul>
         </div>
         
-        <div class="image-container">
+        <div class="image-container footer-image-container">
             <img src="Footer Picture.jpg" alt="Nature Picture" style="width: 100%; height: auto;"> <!-- Replace "Footer Picture.jpg" with the path to your image -->
         </div>
 
@@ -160,6 +163,10 @@
     
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
+        
+        function showNotification() {
+            alert("You're Signed up for Our Newsletter!");
+        }
     </script>
 
 </body>
