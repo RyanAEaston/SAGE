@@ -70,12 +70,12 @@
             height: 300px; /* Set height equal to slider height */
             position: absolute;
             top: 0;
-            left: 50%; /* Center the image horizontally */
-            transform: translateX(-50%); /* Adjust position to center */
+            left: 0;
             opacity: 0; /* Initially hide all images */
             transition: opacity 0.5s ease; /* Smooth transition effect */
+            display: block;
+            margin: 0 auto; /* Center the images */
         }
-
         .slider img.active {
             opacity: 1; /* Show active image */
         }
@@ -107,6 +107,18 @@
             height: auto;
             border-radius: 5px; /* Rounded corners for the footer image */
         }
+        .email-form {
+            text-align: center;
+        }
+        #email-input {
+            padding: 8px;
+            width: 250px;
+            margin-right: 10px;
+        }
+        #notification {
+            margin-top: 10px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -116,11 +128,6 @@
     </header>
     
     <div class="container">
-        <div class="text-box">
-            <h2>About SAGE</h2>
-            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
-        </div>
-        
         <div class="slider">
             <img id="img-1" src="Mock1.png" alt="Image 1" class="active">
             <img id="img-2" src="Mock2.png" alt="Image 2">
@@ -137,12 +144,22 @@
         </div>
 
         <div class="text-box">
+            <h2>About SAGE</h2>
+            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
+        </div>
+        
+        <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
 
-        <div class="footer-image">
-            <img src="Footer Picture.jpg" alt="Footer Image">
+        <div class="email-form">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="notification"></p>
         </div>
         
         <div class="text-box">
@@ -197,6 +214,31 @@
         function changeSlideAutomatically() {
             currentImg = (currentImg + 1) % imgs.length;
             changeSlide(currentImg);
+        }
+
+        // Email subscription form
+        var form = document.getElementById("newsletter-form");
+        var emailInput = document.getElementById("email-input");
+        var notification = document.getElementById("notification");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var email = emailInput.value;
+
+            if (validateEmail(email)) {
+                // Here you can add code to handle successful subscription
+                notification.textContent = "Subscription successful! Thank you.";
+                notification.style.color = "green";
+                emailInput.value = ""; // Clear input field
+            } else {
+                notification.textContent = "Please enter a valid email address.";
+                notification.style.color = "red";
+            }
+        });
+
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
         }
     </script>
 </body>
