@@ -59,19 +59,19 @@
             overflow: hidden;
             position: relative;
             margin-bottom: 20px;
+            height: 200px; /* Set the height of the gallery */
         }
         .image-container {
             flex: 1;
-            opacity: 0.5;
+            opacity: 0.2; /* Initial opacity */
             transition: opacity 0.3s ease;
-        }
-        .image-container:hover {
-            opacity: 1;
+            height: 100%; /* Set the height of the image container */
         }
         .image-container img {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 100%; /* Set the height of the images */
             display: block;
+            margin: 0 auto; /* Center the images horizontally */
         }
         .prev, .next {
             position: absolute;
@@ -113,6 +113,15 @@
             cursor: pointer;
             font-family: 'Nunito', Arial, sans-serif; /* Use Nunito font */
         }
+        .wide-image-box {
+            margin-bottom: 20px;
+        }
+        .wide-image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
 
     </style>
 </head>
@@ -126,6 +135,10 @@
         <div class="email-form">
             <input id="emailInput" type="email" class="email-input" placeholder="Enter your email">
             <button class="submit-btn" onclick="submitEmail()">Submit</button>
+        </div>
+
+        <div class="wide-image-box">
+            <img src="Footer Picture.jpg" alt="Wide Image">
         </div>
 
         <div class="image-gallery">
