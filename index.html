@@ -63,16 +63,18 @@
         }
         .image-container {
             flex: 1;
-            opacity: 0.5;
+            opacity: 0.3; /* Initially set opacity to 0.3 */
             transition: opacity 0.3s ease;
+            height: 100%; /* Ensure each image container fills the gallery height */
         }
         .image-container:hover {
             opacity: 1;
         }
         .image-container img {
-            width: 100%;
-            height: auto;
+            width: auto; /* Allow image width to adjust according to height */
+            height: 100%; /* Fill the container height */
             display: block;
+            margin: 0 auto; /* Center the image horizontally */
         }
         .prev, .next {
             position: absolute;
@@ -214,11 +216,6 @@
                 image.style.opacity = opacity;
             });
             images[currentIndex].style.opacity = 1; // Make the middle image fully opaque
-        }
-
-        function submitEmail() {
-            alert("You're Signed up for Our Newsletter!");
-            document.getElementById("emailInput").value = ""; // Clear the email input field
         }
     </script>
 </body>
