@@ -50,118 +50,48 @@
             height: auto;
             margin-right: 10px; /* Added margin to separate logo and text */
         }
-        .image-gallery {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-            margin-bottom: 20px;
-            max-height: 300px; /* Restricting the height of the image gallery */
+        .text-box {
+            background-color: #f0f0f0; /* Light gray background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding around the content */
+            margin-bottom: 20px; /* Spacing between text boxes */
         }
-        .image-container {
-            flex: 1;
-            opacity: 0.3; /* Initially set opacity to 0.3 */
-            transition: opacity 0.3s ease;
-            height: 100%; /* Ensure each image container fills the gallery height */
-            text-align: center; /* Center images horizontally */
+        .text-box h2 {
+            margin-top: 0; /* Remove margin on top of headers */
+        }
+        .image-slider {
+            max-height: 500px; /* Limiting the height of the image slider */
             overflow: hidden; /* Hide overflow */
+            position: relative; /* Positioning for absolute image placement */
+            margin-bottom: 20px; /* Spacing between image slider and text boxes */
         }
-        .image-container img {
-            max-height: 100%; /* Limit image height to container height */
-            width: auto; /* Allow the width to adjust to maintain aspect ratio */
-            display: inline-block; /* Ensure the image behaves as a block element */
+        .image-slider img {
+            width: auto; /* Auto width */
+            max-height: 100%; /* Limit image height to slider height */
+            position: absolute; /* Absolute positioning */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            opacity: 0; /* Initially hide images */
+            transition: opacity 0.5s ease; /* Smooth transition for opacity */
         }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            transition: background-color 0.3s ease;
+        .image-slider img.active {
+            opacity: 1; /* Show active image */
         }
-        .prev:hover, .next:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        .prev {
-            left: 10px;
-        }
-        .next {
-            right: 10px;
-        }
-        .email-form {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .email-input {
-            padding: 10px;
-            width: 300px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .submit-btn {
-            padding: 10px 20px;
-            background-color: #8f9779;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Nunito', Arial, sans-serif; /* Use Nunito font */
-        }
-        .footer-image {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .footer-image img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Image Slider Styles */
-        .slider {
-            width: 100%;
-            height: 510px;
-            position: relative;
-            overflow: hidden;
-            margin-top: 20px; /* Added margin to separate from previous content */
-        }
-
-        .slider img {
-            width: 100%;
-            height: 500px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .slider img:first-child {
-            opacity: 1;
-        }
-
         .navigation-button {
             text-align: center;
             position: relative;
-            margin-top: 10px;
+            margin-top: 10px; /* Spacing between navigation buttons and slider */
         }
-
         .dot {
             cursor: pointer;
             height: 15px;
             width: 15px;
-            margin: 0 2px;
+            margin: 0 5px; /* Spacing between dots */
             background-color: #bbb;
             border-radius: 50%;
             display: inline-block;
         }
-
-        .active,
-        .dot:hover {
+        .active, .dot:hover {
             background-color: #717171;
         }
     </style>
@@ -178,50 +108,25 @@
             <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
         </div>
         
-        <!-- Image Slider -->
-        <div class="slider">
-            <img id="img-1" src="mock1.png" alt="Image 1"/>
-            <img id="img-2" src="mock2.png" alt="Image 2"/>
-            <img id="img-3" src="mock3.png" alt="Image 3"/>
+        <div class="image-slider">
+            <img id="img-1" src="img-1.jpg" alt="Image 1" class="active">
+            <img id="img-2" src="img-2.jpg" alt="Image 2">
+            <img id="img-3" src="img-3.jpg" alt="Image 3">
         </div>
+
         <div class="navigation-button">
             <span class="dot active" onclick="changeSlide(0)"></span>
             <span class="dot" onclick="changeSlide(1)"></span>
             <span class="dot" onclick="changeSlide(2)"></span>
         </div>
-        <!-- End of Image Slider -->
-
+        
         <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
 
-        <div class="footer-image">
-            <img src="Footer Picture.jpg" alt="Footer Image">
-        </div>
-        
-        <div class="text-box">
-            <h2>Our Results</h2>
-            <p>Showcase the results here.</p>
-        </div>
+        <!-- Other text boxes go here -->
 
-        <div class="text-box">
-            <h2>Our Team</h2>
-            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
-            <ul>
-                <li>Afia - Business Lead</li>
-                <li>Emily - UX Lead</li>
-                <li>Matthew - Tech Lead</li>
-                <li>Hyeri - Research Lead</li>
-            </ul>
-        </div>
-
-        <div class="text-box">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
-            <p>Email: info@sagewellness.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
     </div>
     
     <footer>
@@ -231,31 +136,32 @@
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
 
-        // JavaScript code for Image Slider
-        var imgs = document.querySelectorAll('.slider img');
+        var imgs = document.querySelectorAll('.image-slider img');
         var dots = document.querySelectorAll('.dot');
         var currentImg = 0; // index of the first image
-        const interval = 3000; // duration(speed) of the slide
-        var timer;
+        var interval = 3000; // duration(speed) of the slide
+        var timer = setInterval(changeSlide, interval);
 
-        // Change the Images Using Navigation Dots
         function changeSlide(n) {
-            clearInterval(timer); // Clear the interval to prevent automatic sliding
             for (var i = 0; i < imgs.length; i++) { // reset
-                imgs[i].style.opacity = 0;
+                imgs[i].classList.remove('active');
                 dots[i].classList.remove('active');
             }
 
-            currentImg = n !== undefined ? n : (currentImg + 1) % imgs.length;
+            currentImg = (n !== undefined) ? n : (currentImg + 1) % imgs.length; // update the index number
 
-            imgs[currentImg].style.opacity = 1;
+            if (currentImg < 0) {
+                currentImg = imgs.length - 1;
+            }
+
+            imgs[currentImg].classList.add('active');
             dots[currentImg].classList.add('active');
 
-            timer = setInterval(changeSlide, interval); // Restart the timer
+            if (n !== undefined) {
+                clearInterval(timer);
+                timer = setInterval(changeSlide, interval);
+            }
         }
-
-        // Change the Images Automatically
-        timer = setInterval(changeSlide, interval);
     </script>
 </body>
 </html>
