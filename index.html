@@ -28,8 +28,6 @@
             color: #fff; /* White text color */
             padding: 10px 20px;
             text-align: center;
-            position: fixed;
-            bottom: 0;
             width: 100%;
         }
         .container {
@@ -115,13 +113,12 @@
             font-family: 'Nunito', Arial, sans-serif; /* Use Nunito font */
         }
         .footer-image {
-            margin-top: 20px;
             text-align: center;
+            margin-top: 20px;
         }
         .footer-image img {
             width: 100%;
             height: auto;
-            display: block;
         }
     </style>
 </head>
@@ -180,9 +177,12 @@
         </div>
     </div>
     
+    <footer>
+        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
+    </footer>
+
     <footer class="footer-image">
         <img src="Footer Picture.jpg" alt="Footer Image">
-        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
     </footer>
     
     <script>
