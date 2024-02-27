@@ -109,6 +109,7 @@
         }
         .email-form {
             text-align: center;
+            margin-bottom: 20px; /* Added margin bottom */
         }
         #email-input {
             padding: 8px;
@@ -126,8 +127,17 @@
         <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
         <h1>Introducing SAGE</h1>
     </header>
-    
+
     <div class="container">
+        <div class="email-form">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="notification"></p>
+        </div>
+        
         <div class="slider">
             <img id="img-1" src="Mock1.png" alt="Image 1" class="active">
             <img id="img-2" src="Mock2.png" alt="Image 2">
@@ -153,13 +163,8 @@
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
 
-        <div class="email-form">
-            <h2>Subscribe to Our Newsletter</h2>
-            <form id="newsletter-form">
-                <input type="email" id="email-input" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p id="notification"></p>
+        <div class="footer-image">
+            <img src="Footer Picture.jpg" alt="Footer Image">
         </div>
         
         <div class="text-box">
