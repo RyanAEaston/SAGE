@@ -59,24 +59,27 @@
         .text-box h2 {
             margin-top: 0; /* Remove top margin for h2 inside text boxes */
         }
-        .slider {
+      .slider {
             width: 100%;
             height: 300px; /* Adjust the height of the slider as needed */
             position: relative;
             overflow: hidden; /* Hide any overflow */
         }
+        
         .slider img {
-            width: 100%;
-            height: auto;
+            width: auto; /* Maintain aspect ratio */
+            height: 300px; /* Set height equal to slider height */
             position: absolute;
             top: 0;
             left: 0;
             opacity: 0; /* Initially hide all images */
             transition: opacity 0.5s ease; /* Smooth transition effect */
         }
+        
         .slider img.active {
             opacity: 1; /* Show active image */
         }
+
         .navigation-button {
             text-align: center;
             position: relative;
