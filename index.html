@@ -50,49 +50,51 @@
             height: auto;
             margin-right: 10px; /* Added margin to separate logo and text */
         }
-        .text-box {
-            background-color: #f0f0f0; /* Light gray background */
-            border-radius: 10px; /* Rounded corners */
-            padding: 20px; /* Padding around the content */
-            margin-bottom: 20px; /* Spacing between text boxes */
+        .slider {
+            width: 100%;
+            height: 300px; /* Adjust the height of the slider as needed */
+            position: relative;
+            overflow: hidden; /* Hide any overflow */
         }
-        .text-box h2 {
-            margin-top: 0; /* Remove margin on top of headers */
+        .slider img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0; /* Initially hide all images */
+            transition: opacity 0.5s ease; /* Smooth transition effect */
         }
-        .image-slider {
-            max-height: 500px; /* Limiting the height of the image slider */
-            overflow: hidden; /* Hide overflow */
-            position: relative; /* Positioning for absolute image placement */
-            margin-bottom: 20px; /* Spacing between image slider and text boxes */
-        }
-        .image-slider img {
-            width: auto; /* Auto width */
-            max-height: 100%; /* Limit image height to slider height */
-            position: absolute; /* Absolute positioning */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            opacity: 0; /* Initially hide images */
-            transition: opacity 0.5s ease; /* Smooth transition for opacity */
-        }
-        .image-slider img.active {
+        .slider img.active {
             opacity: 1; /* Show active image */
         }
         .navigation-button {
             text-align: center;
             position: relative;
-            margin-top: 10px; /* Spacing between navigation buttons and slider */
+            margin-top: 10px;
         }
         .dot {
             cursor: pointer;
             height: 15px;
             width: 15px;
-            margin: 0 5px; /* Spacing between dots */
+            margin: 0 5px;
             background-color: #bbb;
             border-radius: 50%;
             display: inline-block;
+            transition: background-color 0.3s ease; /* Smooth transition effect */
         }
-        .active, .dot:hover {
-            background-color: #717171;
+        .dot.active,
+        .dot:hover {
+            background-color: #717171; /* Darker color for active dot */
+        }
+        .footer-image {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Rounded corners for the footer image */
         }
     </style>
 </head>
@@ -103,30 +105,25 @@
     </header>
     
     <div class="container">
-        <div class="text-box">
-            <h2>About SAGE</h2>
-            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
-        </div>
-        
-        <div class="image-slider">
+        <div class="slider">
             <img id="img-1" src="img-1.jpg" alt="Image 1" class="active">
             <img id="img-2" src="img-2.jpg" alt="Image 2">
             <img id="img-3" src="img-3.jpg" alt="Image 3">
         </div>
-
         <div class="navigation-button">
             <span class="dot active" onclick="changeSlide(0)"></span>
             <span class="dot" onclick="changeSlide(1)"></span>
             <span class="dot" onclick="changeSlide(2)"></span>
         </div>
+
+        <div class="text-box">
+            <h2>About SAGE</h2>
+            <p>SAGE is a wellness technology startup that aims to change how children learn about and manage their asthma from an early age. Our child-friendly AI chatbot is designed to educate children about asthma in a respectful and safe manner. We believe that by making asthma education interactive and engaging, we can help children manage their asthma and live healthier, happier lives. This is why we created SAGE – to provide children with the tools they need to take control of their asthma.</p>
+        </div>
         
         <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
-        </div>
-
-        <div class="footer-image">
-            <img src="Footer Picture.jpg" alt="Footer Image">
         </div>
 
         <div class="text-box">
@@ -151,6 +148,10 @@
             <p>Email: info@sagewellness.com</p>
             <p>Phone: 123-456-7890</p>
         </div>
+
+        <div class="footer-image">
+            <img src="Footer Picture.jpg" alt="Footer Image">
+        </div>
     </div>
     
     <footer>
@@ -160,11 +161,10 @@
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
 
-        var imgs = document.querySelectorAll('.image-slider img');
+        var imgs = document.querySelectorAll('.slider img');
         var dots = document.querySelectorAll('.dot');
         var currentImg = 0; // index of the first image 
         const interval = 3000; // duration(speed) of the slide
-        var timer = setInterval(changeSlide, interval);
 
         function changeSlide(n) {
             for (var i = 0; i < imgs.length; i++) { // reset
@@ -172,15 +172,16 @@
                 dots[i].classList.remove('active');
             }
 
-            currentImg = (n != undefined) ? n : (currentImg + 1) % imgs.length;
-
+            currentImg = n;
             imgs[currentImg].classList.add('active');
             dots[currentImg].classList.add('active');
-            
-            if (n !== undefined) {
-                clearInterval(timer);
-                timer = setInterval(changeSlide, interval);
-            }
+        }
+
+        var timer = setInterval(changeSlideAutomatically, interval);
+
+        function changeSlideAutomatically() {
+            currentImg = (currentImg + 1) % imgs.length;
+            changeSlide(currentImg);
         }
     </script>
 </body>
