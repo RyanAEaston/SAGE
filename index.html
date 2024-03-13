@@ -233,11 +233,11 @@
         </div>
 
         <div class="navigation-button">
-            <span class="dot active" onclick="changeSlideSecondSlider(0)"></span>
-            <span class="dot" onclick="changeSlideSecondSlider(1)"></span>
-            <span class="dot" onclick="changeSlideSecondSlider(2)"></span>
-            <span class="dot" onclick="changeSlideSecondSlider(3)"></span>
-            <span class="dot" onclick="changeSlideSecondSlider(4)"></span>
+            <span class="dot active" onclick="changeSlide(0)"></span>
+            <span class="dot" onclick="changeSlide(1)"></span>
+            <span class="dot" onclick="changeSlide(2)"></span>
+            <span class="dot" onclick="changeSlide(3)"></span>
+            <span class="dot" onclick="changeSlide(4)"></span>
         </div>
 
 
@@ -301,173 +301,58 @@
                     <h3>Have ChatGPT Plus? Preview Our SAGE CustomGPT Bot</h3>
                     <p>Just Click Here: <a href="https://chat.openai.com/g/g-j1yjTkwB4-sage-educational-test-bot" target="_blank">SAGE CustomGPT</a>.</p>
                 </div>
-                <div class="slider">
+                <div class="slider new-slider">
                     <img id="img-6" src="Pre-Login.png" alt="Image 1C" class="active">
                     <img id="img-7" src="Graph.png" alt="Image 2C">
-                    <img id="img-8" src="ChildNotification.png" alt="Image 3C">
-                    <img id="img-9" src="PeakHistory.png" alt="Image 4C">
-                    <img id="img-10" src="PeakLogging.png" alt="Image 5C">
-                    <img id="img-11" src="ParentNotification.png" alt="Image 6C">
-                    <img id="img-12" src="AirQuality.png" alt="Image 7C">
-                    <img id="img-13" src="Exercise.png" alt="Image 8C">
-                    <img id="img-14" src="Game.png" alt="Image 9C">
-                    <img id="img-15" src="Trophy.png" alt="Image 10C">
-                    <img id="img-16" src="Reminders.png" alt="Image 11C">
-                    <img id="img-17" src="TrophyCase.png" alt="Image 12C">
-                    <img id="img-18" src="BotLanding.png" alt="Image 13C">
-                    <img id="img-19" src="BotResponse1.png" alt="Image 14C">
-                    <img id="img-20" src="BotResponse2.png" alt="Image 15C">
-                    <img id="img-21" src="ParentSettings.png" alt="Image 16C">
-                    <!-- Add more images as needed -->
-                </div>
-                <div class="navigation-button">
-                    <span class="dot active" onclick="changeSlideSecondSlider(0)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(1)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(2)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(3)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(4)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(5)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(6)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(7)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(8)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(9)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(10)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(11)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(12)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(13)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(14)"></span>
-                    <span class="dot" onclick="changeSlideSecondSlider(15)"></span>
+                    <img id="img-8" src="Profile.png" alt="Image 3C">
+                    <img id="img-9" src="Calendar.png" alt="Image 4C">
+                    <img id="img-10" src="Avatar.png" alt="Image 5C">
                 </div>
             </div>
         </div>
 
-
-
-        
-        <div class="text-box">
-            <h2>Our Team</h2>
-            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
-            <ul>
-                <li>Afia - Business Lead</li>
-                <li>Emily - UX Lead</li>
-                <li>Matthew - Tech Lead</li>
-                <li>Hyeri - Research Lead</li>
-            </ul>
-        </div>
-
-        <div class="text-box">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
-            <p>Email: info@sagewellness.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
-
         <div class="footer-image">
-            <img src="Landscape Image.jpg" alt="Footer Image">
+            <img src="SAGE Footer Image.png" alt="Footer Image">
         </div>
     </div>
-    
+
     <footer>
-        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
+        <p>&copy; 2024 SAGE. All rights reserved.</p>
     </footer>
-    
+
     <script>
-        document.getElementById("lastUpdated").innerHTML = document.lastModified;
-    
-        // First slider
-        var imgs = document.querySelectorAll('.slider img');
-        var dots = document.querySelectorAll('.slider .dot');
-        var currentImg = 0; // index of the first image 
-        const interval = 3000; // duration(speed) of the slide
-    
-        function changeSlide(n) {
-            currentImg = n;
-            updateSlide();
-        }
-    
-        function updateSlide() {
-            for (var i = 0; i < imgs.length; i++) { // reset
-                imgs[i].classList.remove('active');
-                dots[i].classList.remove('active');
+        // JavaScript for image slider
+        let slideIndex = 0;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slider img');
+            const dots = document.querySelectorAll('.dot');
+
+            if (n >= slides.length) {
+                slideIndex = 0;
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;
             }
-    
-            imgs[currentImg].classList.add('active');
-            dots[currentImg].classList.add('active');
-        }
-    
-        var timer = setInterval(changeSlideAutomatically, interval);
-    
-        function changeSlideAutomatically() {
-            currentImg = (currentImg + 1) % imgs.length;
-            updateSlide();
-        }
-    
-        // Adding event listeners for slider dots
-        dots.forEach(function(dot, index) {
-            dot.addEventListener("click", function() {
-                changeSlide(index);
+
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
             });
-        });
-    
-        // Second slider
-        var imgsSecondSlider = document.querySelectorAll('.new-slider img');
-        var dotsSecondSlider = document.querySelectorAll('.new-slider .dot');
-        var currentImgSecondSlider = 0; // index of the first image 
-        const intervalSecondSlider = 3000; // duration(speed) of the slide
-    
-        function changeSlideSecondSlider(n) {
-            currentImgSecondSlider = n;
-            updateSlideSecondSlider();
+
+            dots.forEach((dot) => {
+                dot.classList.remove('active');
+            });
+
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
         }
-    
-        function updateSlideSecondSlider() {
-            for (var i = 0; i < imgsSecondSlider.length; i++) { // reset
-                imgsSecondSlider[i].classList.remove('active');
-                dotsSecondSlider[i].classList.remove('active');
-            }
-    
-            imgsSecondSlider[currentImgSecondSlider].classList.add('active');
-            dotsSecondSlider[currentImgSecondSlider].classList.add('active');
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
         }
-    
-        var timerSecondSlider = setInterval(changeSlideAutomaticallySecondSlider, intervalSecondSlider);
-    
-        function changeSlideAutomaticallySecondSlider() {
-            currentImgSecondSlider = (currentImgSecondSlider + 1) % imgsSecondSlider.length;
-            updateSlideSecondSlider();
-        }
-    
-        // Email subscription form
-        var form = document.getElementById("newsletter-form");
-        var emailInput = document.getElementById("email-input");
-        var notification = document.getElementById("notification");
-    
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-            var email = emailInput.value;
-    
-            if (validateEmail(email)) {
-                // Here you can add code to handle successful subscription
-                notification.textContent = "Subscription successful! Thank you.";
-                notification.style.color = "green";
-                emailInput.value = ""; // Clear input field
-            } else {
-                notification.textContent = "Please enter a valid email address.";
-                notification.style.color = "red";
-            }
-        });
-    
-        function validateEmail(email) {
-            var re = /\S+@\S+\.\S+/;
-            return re.test(email);
-        }
+
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000); // Change image every 5 seconds
     </script>
-
-
-
-
-
-
-    
 </body>
 </html>
