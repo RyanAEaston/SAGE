@@ -405,29 +405,30 @@
     </script>
 
     <script>
-        var imgs = document.querySelectorAll('.new-slider img');
-        var dots = document.querySelectorAll('.dot');
-        var currentImg = 0; // index of the first image 
-        const interval = 3000; // duration(speed) of the slide
+        var imgsSecondSlider = document.querySelectorAll('.new-slider img');
+        var dotsSecondSlider = document.querySelectorAll('.dot');
+        var currentImgSecondSlider = 0; // index of the first image 
+        const intervalSecondSlider = 3000; // duration(speed) of the slide
     
-        function changeSlide(n) {
-            for (var i = 0; i < imgs.length; i++) { // reset
-                imgs[i].classList.remove('active');
-                dots[i].classList.remove('active');
+        function changeSlideSecondSlider(n) {
+            for (var i = 0; i < imgsSecondSlider.length; i++) { // reset
+                imgsSecondSlider[i].classList.remove('active');
+                dotsSecondSlider[i].classList.remove('active');
             }
     
-            currentImg = n;
-            imgs[currentImg].classList.add('active');
-            dots[currentImg].classList.add('active');
+            currentImgSecondSlider = n;
+            imgsSecondSlider[currentImgSecondSlider].classList.add('active');
+            dotsSecondSlider[currentImgSecondSlider].classList.add('active');
         }
     
-        var timer = setInterval(changeSlideAutomatically, interval);
+        var timerSecondSlider = setInterval(changeSlideAutomaticallySecondSlider, intervalSecondSlider);
     
-        function changeSlideAutomatically() {
-            currentImg = (currentImg + 1) % imgs.length;
-            changeSlide(currentImg);
+        function changeSlideAutomaticallySecondSlider() {
+            currentImgSecondSlider = (currentImgSecondSlider + 1) % imgsSecondSlider.length;
+            changeSlideSecondSlider(currentImgSecondSlider);
         }
     </script>
+
 
 
     
