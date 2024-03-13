@@ -193,8 +193,6 @@
             font-weight: bold; /* Make title bold */
             margin-bottom: 5px; /* Add margin between title and paragraph */
         }
-
-
     </style>
 </head>
 <body>
@@ -288,71 +286,100 @@
             </div>
         </div>
 
-
-
-        
         <div class="text-box">
-            <h2>Try Out SAGE</h2>
-            <div class="slider-container">
-                <div>
-                    <h3>Our SAGE App</h3>
-                    <p>Just Click Here: <a href="https://www.figma.com/proto/oWXUz5sLkMCz80OTLFse3J/Version-3-(Interview)---Features-Excluding-Games?type=design&node-id=8-126&t=tvI18SzB2sFhvtb4-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2023%3A665&show-proto-sidebar=1" target="_blank">SAGE V3</a>.</p>
-                    
-                    <h3>Have ChatGPT Plus? Preview Our SAGE CustomGPT Bot</h3>
-                    <p>Just Click Here: <a href="https://chat.openai.com/g/g-j1yjTkwB4-sage-educational-test-bot" target="_blank">SAGE CustomGPT</a>.</p>
-                </div>
-                <div class="slider new-slider">
-                    <img id="img-6" src="Pre-Login.png" alt="Image 1C" class="active">
-                    <img id="img-7" src="Graph.png" alt="Image 2C">
-                    <img id="img-8" src="Profile.png" alt="Image 3C">
-                    <img id="img-9" src="Calendar.png" alt="Image 4C">
-                    <img id="img-10" src="Avatar.png" alt="Image 5C">
-                </div>
-            </div>
+            <h2>Our Team</h2>
+            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
+            <ul>
+                <li>Afia - Business Lead</li>
+                <li>Emily - UX Lead</li>
+                <li>Matthew - Tech Lead</li>
+                <li>Hyeri - Research Lead</li>
+            </ul>
+        </div>
+
+        <div class="text-box">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
+            <p>Email: info@sagewellness.com</p>
+            <p>Phone: 123-456-7890</p>
         </div>
 
         <div class="footer-image">
-            <img src="SAGE Footer Image.png" alt="Footer Image">
+            <img src="Landscape Image.jpg" alt="Footer Image">
         </div>
     </div>
-
+    
     <footer>
-        <p>&copy; 2024 SAGE. All rights reserved.</p>
+        <p>&copy; 2024 SAGE Wellness. All rights reserved. Last updated: <span id="lastUpdated">March 13, 2024</span></p>
     </footer>
 
     <script>
-        // JavaScript for image slider
+        // JavaScript for slider
         let slideIndex = 0;
+        const slides = document.querySelectorAll('.slider img');
+        const dots = document.querySelectorAll('.dot');
 
-        function showSlide(n) {
-            const slides = document.querySelectorAll('.slider img');
-            const dots = document.querySelectorAll('.dot');
+        function changeSlide(n) {
+            slideIndex = n;
+            updateSlide();
+        }
 
-            if (n >= slides.length) {
-                slideIndex = 0;
-            } else if (n < 0) {
-                slideIndex = slides.length - 1;
-            }
-
+        function updateSlide() {
             slides.forEach((slide) => {
                 slide.classList.remove('active');
             });
-
             dots.forEach((dot) => {
                 dot.classList.remove('active');
             });
-
             slides[slideIndex].classList.add('active');
             dots[slideIndex].classList.add('active');
         }
 
-        function changeSlide(n) {
-            showSlide(slideIndex += n);
+        function nextSlide() {
+            slideIndex++;
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            updateSlide();
         }
 
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000); // Change image every 5 seconds
+        function prevSlide() {
+            slideIndex--;
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            updateSlide();
+        }
+
+        setInterval(nextSlide, 3000); // Auto slide every 3 seconds
+
+        // JavaScript for email subscription
+        const form = document.getElementById('newsletter-form');
+        const emailInput = document.getElementById('email-input');
+        const notification = document.getElementById('notification');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = emailInput.value;
+            if (isValidEmail(email)) {
+                notification.textContent = 'Email submitted successfully!';
+                notification.style.color = 'green';
+            } else {
+                notification.textContent = 'Please enter a valid email address';
+                notification.style.color = 'red';
+            }
+            form.reset(); // Clear the input field after submission
+        });
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // JavaScript for last updated timestamp
+        const lastUpdated = document.getElementById('lastUpdated');
+        const currentDate = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        lastUpdated.textContent = currentDate.toLocaleDateString('en-US', options);
     </script>
 </body>
 </html>
