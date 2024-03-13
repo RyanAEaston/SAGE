@@ -320,6 +320,24 @@
                     <img id="img-16" src="ParentSettings.png" alt="Image 16C">
                     <!-- Add more images as needed -->
                 </div>
+                <div class="navigation-button">
+                    <span class="dot active" onclick="changeSlideSecondSlider(0)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(1)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(2)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(3)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(4)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(5)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(6)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(7)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(8)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(9)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(10)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(11)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(12)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(13)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(14)"></span>
+                    <span class="dot" onclick="changeSlideSecondSlider(15)"></span>
+                </div>
             </div>
         </div>
 
@@ -355,39 +373,72 @@
     
     <script>
         document.getElementById("lastUpdated").innerHTML = document.lastModified;
-
+    
+        // First slider
         var imgs = document.querySelectorAll('.slider img');
-        var dots = document.querySelectorAll('.dot');
+        var dots = document.querySelectorAll('.slider .dot');
         var currentImg = 0; // index of the first image 
         const interval = 3000; // duration(speed) of the slide
-
+    
         function changeSlide(n) {
+            currentImg = n;
+            updateSlide();
+        }
+    
+        function updateSlide() {
             for (var i = 0; i < imgs.length; i++) { // reset
                 imgs[i].classList.remove('active');
                 dots[i].classList.remove('active');
             }
-
-            currentImg = n;
+    
             imgs[currentImg].classList.add('active');
             dots[currentImg].classList.add('active');
         }
-
+    
         var timer = setInterval(changeSlideAutomatically, interval);
-
+    
         function changeSlideAutomatically() {
             currentImg = (currentImg + 1) % imgs.length;
-            changeSlide(currentImg);
+            updateSlide();
         }
-
+    
+        // Second slider
+        var imgsSecondSlider = document.querySelectorAll('.new-slider img');
+        var dotsSecondSlider = document.querySelectorAll('.new-slider .dot');
+        var currentImgSecondSlider = 0; // index of the first image 
+        const intervalSecondSlider = 3000; // duration(speed) of the slide
+    
+        function changeSlideSecondSlider(n) {
+            currentImgSecondSlider = n;
+            updateSlideSecondSlider();
+        }
+    
+        function updateSlideSecondSlider() {
+            for (var i = 0; i < imgsSecondSlider.length; i++) { // reset
+                imgsSecondSlider[i].classList.remove('active');
+                dotsSecondSlider[i].classList.remove('active');
+            }
+    
+            imgsSecondSlider[currentImgSecondSlider].classList.add('active');
+            dotsSecondSlider[currentImgSecondSlider].classList.add('active');
+        }
+    
+        var timerSecondSlider = setInterval(changeSlideAutomaticallySecondSlider, intervalSecondSlider);
+    
+        function changeSlideAutomaticallySecondSlider() {
+            currentImgSecondSlider = (currentImgSecondSlider + 1) % imgsSecondSlider.length;
+            updateSlideSecondSlider();
+        }
+    
         // Email subscription form
         var form = document.getElementById("newsletter-form");
         var emailInput = document.getElementById("email-input");
         var notification = document.getElementById("notification");
-
+    
         form.addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent default form submission
             var email = emailInput.value;
-
+    
             if (validateEmail(email)) {
                 // Here you can add code to handle successful subscription
                 notification.textContent = "Subscription successful! Thank you.";
@@ -398,37 +449,13 @@
                 notification.style.color = "red";
             }
         });
-
+    
         function validateEmail(email) {
             var re = /\S+@\S+\.\S+/;
             return re.test(email);
         }
     </script>
 
-    <script>
-        var imgsSecondSlider = document.querySelectorAll('.new-slider img');
-        var dotsSecondSlider = document.querySelectorAll('.dot');
-        var currentImgSecondSlider = 0; // index of the first image 
-        const intervalSecondSlider = 3000; // duration(speed) of the slide
-    
-        function changeSlideSecondSlider(n) {
-            for (var i = 0; i < imgsSecondSlider.length; i++) { // reset
-                imgsSecondSlider[i].classList.remove('active');
-                dotsSecondSlider[i].classList.remove('active');
-            }
-    
-            currentImgSecondSlider = n;
-            imgsSecondSlider[currentImgSecondSlider].classList.add('active');
-            dotsSecondSlider[currentImgSecondSlider].classList.add('active');
-        }
-    
-        var timerSecondSlider = setInterval(changeSlideAutomaticallySecondSlider, intervalSecondSlider);
-    
-        function changeSlideAutomaticallySecondSlider() {
-            currentImgSecondSlider = (currentImgSecondSlider + 1) % imgsSecondSlider.length;
-            changeSlideSecondSlider(currentImgSecondSlider);
-        }
-    </script>
 
 
 
