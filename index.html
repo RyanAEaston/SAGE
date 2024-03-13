@@ -193,8 +193,6 @@
             font-weight: bold; /* Make title bold */
             margin-bottom: 5px; /* Add margin between title and paragraph */
         }
-
-
     </style>
 </head>
 <body>
@@ -298,138 +296,40 @@
                     <p>Just Click Here: <a href="https://www.figma.com/proto/oWXUz5sLkMCz80OTLFse3J/Version-3-(Interview)---Features-Excluding-Games?type=design&node-id=8-126&t=tvI18SzB2sFhvtb4-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2023%3A665&show-proto-sidebar=1" target="_blank">SAGE V3</a>.</p>
                     
                     <h3>Have ChatGPT Plus? Preview Our SAGE CustomGPT Bot</h3>
-                    <p>Just Click Here: <a href="https://chat.openai.com/g/g-j1yjTkwB4-sage-educational-test-bot" target="_blank">SAGE CustomGPT</a>.</p>
+                    <p>Just Click Here: <a href="https://chat.openai.com/g/g-j1yjTkwB4-sage-educational-test-bot" target="_blank">SAGE ChatGPT Preview</a>.</p>
                 </div>
                 <div class="new-slider">
-                    <img src="Pre-Login.png" alt="Image 1C">
-                    <img src="Graph.png" alt="Image 2C">
-                    <img src="ChildNotification.png" alt="Image 3C">
-                    <img src="PeakHistory.png" alt="Image 4C">
-                    <img src="PeakLogging.png" alt="Image 5C">
-                    <img src="ParentNotification.png" alt="Image 6C">
-                    <img src="AirQuality.png" alt="Image 7C">
-                    <img src="Exercise.png" alt="Image 8C">
-                    <img src="Game.png" alt="Image 9C">
-                    <img src="Trophy.png" alt="Image 10C">
-                    <img src="Reminders.png" alt="Image 11C">
-                    <img src="TrophyCase.png" alt="Image 12C">
-                    <img src="BotLanding.png" alt="Image 13C">
-                    <img src="BotResponse1.png" alt="Image 14C">
-                    <img src="BotResponse2.png" alt="Image 15C">
-                    <img src="ParentSettings.png" alt="Image 16C">
-                    <!-- Add more images as needed -->
+                    <img src="SageMockUp.png" alt="SAGE App Mockup">
                 </div>
             </div>
         </div>
 
-
-
-        
-        <div class="text-box">
-            <h2>Our Team</h2>
-            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
-            <ul>
-                <li>Afia - Business Lead</li>
-                <li>Emily - UX Lead</li>
-                <li>Matthew - Tech Lead</li>
-                <li>Hyeri - Research Lead</li>
-            </ul>
-        </div>
-
-        <div class="text-box">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
-            <p>Email: info@sagewellness.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
-
         <div class="footer-image">
-            <img src="Landscape Image.jpg" alt="Footer Image">
+            <img src="SageMomKid.png" alt="SAGE Footer Image">
         </div>
     </div>
-    
+
     <footer>
-        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
+        <p>&copy; 2024 SAGE. All rights reserved.</p>
     </footer>
-    
-    <script>
-        document.getElementById("lastUpdated").innerHTML = document.lastModified;
-
-        var imgs = document.querySelectorAll('.slider img');
-        var dots = document.querySelectorAll('.dot');
-        var currentImg = 0; // index of the first image 
-        const interval = 3000; // duration(speed) of the slide
-
-        function changeSlide(n) {
-            for (var i = 0; i < imgs.length; i++) { // reset
-                imgs[i].classList.remove('active');
-                dots[i].classList.remove('active');
-            }
-
-            currentImg = n;
-            imgs[currentImg].classList.add('active');
-            dots[currentImg].classList.add('active');
-        }
-
-        var timer = setInterval(changeSlideAutomatically, interval);
-
-        function changeSlideAutomatically() {
-            currentImg = (currentImg + 1) % imgs.length;
-            changeSlide(currentImg);
-        }
-
-        // Email subscription form
-        var form = document.getElementById("newsletter-form");
-        var emailInput = document.getElementById("email-input");
-        var notification = document.getElementById("notification");
-
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-            var email = emailInput.value;
-
-            if (validateEmail(email)) {
-                // Here you can add code to handle successful subscription
-                notification.textContent = "Subscription successful! Thank you.";
-                notification.style.color = "green";
-                emailInput.value = ""; // Clear input field
-            } else {
-                notification.textContent = "Please enter a valid email address.";
-                notification.style.color = "red";
-            }
-        });
-
-        function validateEmail(email) {
-            var re = /\S+@\S+\.\S+/;
-            return re.test(email);
-        }
-    </script>
 
     <script>
-        var imgs = document.querySelectorAll('.new-slider img');
-        var dots = document.querySelectorAll('.dot');
-        var currentImg = 0; // index of the first image 
-        const interval = 3000; // duration(speed) of the slide
-    
-        function changeSlide(n) {
-            for (var i = 0; i < imgs.length; i++) { // reset
-                imgs[i].classList.remove('active');
-                dots[i].classList.remove('active');
-            }
-    
-            currentImg = n;
-            imgs[currentImg].classList.add('active');
-            dots[currentImg].classList.add('active');
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider img');
+        const dots = document.querySelectorAll('.dot');
+
+        function changeSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
         }
-    
-        var timer = setInterval(changeSlideAutomatically, interval);
-    
-        function changeSlideAutomatically() {
-            currentImg = (currentImg + 1) % imgs.length;
-            changeSlide(currentImg);
-        }
+
+        setInterval(() => {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            changeSlide(nextSlide);
+        }, 5000); // Change slide every 5 seconds
     </script>
-
-
-    
 </body>
 </html>
