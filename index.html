@@ -402,6 +402,13 @@
             updateSlide();
         }
     
+        // Adding event listeners for slider dots
+        dots.forEach(function(dot, index) {
+            dot.addEventListener("click", function() {
+                changeSlide(index);
+            });
+        });
+    
         // Second slider
         var imgsSecondSlider = document.querySelectorAll('.new-slider img');
         var dotsSecondSlider = document.querySelectorAll('.new-slider .dot');
@@ -455,6 +462,7 @@
             return re.test(email);
         }
     </script>
+
 
 
 
