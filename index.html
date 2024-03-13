@@ -403,5 +403,33 @@
             return re.test(email);
         }
     </script>
+
+    <script>
+        var imgs = document.querySelectorAll('.new-slider img');
+        var dots = document.querySelectorAll('.dot');
+        var currentImg = 0; // index of the first image 
+        const interval = 3000; // duration(speed) of the slide
+    
+        function changeSlide(n) {
+            for (var i = 0; i < imgs.length; i++) { // reset
+                imgs[i].classList.remove('active');
+                dots[i].classList.remove('active');
+            }
+    
+            currentImg = n;
+            imgs[currentImg].classList.add('active');
+            dots[currentImg].classList.add('active');
+        }
+    
+        var timer = setInterval(changeSlideAutomatically, interval);
+    
+        function changeSlideAutomatically() {
+            currentImg = (currentImg + 1) % imgs.length;
+            changeSlide(currentImg);
+        }
+    </script>
+
+
+    
 </body>
 </html>
