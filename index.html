@@ -305,36 +305,131 @@
                     <img src="Graph.png" alt="Image 2C">
                     <img src="ChildNotification.png" alt="Image 3C">
                     <img src="PeakHistory.png" alt="Image 4C">
-                    <img src="TrophyCabinet.png" alt="Image 5C">
+                    <img src="PeakLogging.png" alt="Image 5C">
+                    <img src="ParentNotification.png" alt="Image 6C">
+                    <img src="AirQuality.png" alt="Image 7C">
+                    <img src="Exercise.png" alt="Image 8C">
+                    <img src="Game.png" alt="Image 9C">
+                    <img src="Trophy.png" alt="Image 10C">
+                    <img src="Reminders.png" alt="Image 11C">
+                    <img src="TrophyCase.png" alt="Image 12C">
+                    <img src="BotLanding.png" alt="Image 13C">
+                    <img src="BotResponse1.png" alt="Image 14C">
+                    <img src="BotResponse2.png" alt="Image 15C">
+                    <img src="ParentSettings.png" alt="Image 16C">
+                    <!-- Add more images as needed -->
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer>
-        <div class="footer-image">
-            <img src="FooterImage.png" alt="Footer Image">
+
+
+        
+        <div class="text-box">
+            <h2>Our Team</h2>
+            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
+            <ul>
+                <li>Afia - Business Lead</li>
+                <li>Emily - UX Lead</li>
+                <li>Matthew - Tech Lead</li>
+                <li>Hyeri - Research Lead</li>
+            </ul>
         </div>
-        <p>&copy; 2024 SAGE. All rights reserved.</p>
-    </footer>
 
+        <div class="text-box">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
+            <p>Email: info@sagewellness.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+
+        <div class="footer-image">
+            <img src="Landscape Image.jpg" alt="Footer Image">
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 SAGE - Wellness Technology Startup. All rights reserved. Last updated: <span id="lastUpdated"></span></p>
+    </footer>
+    
     <script>
-        // JavaScript for slider functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slider img');
-        const dots = document.querySelectorAll('.dot');
+        document.getElementById("lastUpdated").innerHTML = document.lastModified;
+
+        var imgs = document.querySelectorAll('.slider img');
+        var dots = document.querySelectorAll('.dot');
+        var currentImg = 0; // index of the first image 
+        const interval = 3000; // duration(speed) of the slide
 
         function changeSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
+            for (var i = 0; i < imgs.length; i++) { // reset
+                imgs[i].classList.remove('active');
+                dots[i].classList.remove('active');
+            }
+
+            currentImg = n;
+            imgs[currentImg].classList.add('active');
+            dots[currentImg].classList.add('active');
         }
 
-        setInterval(() => {
-            changeSlide(currentSlide + 1);
-        }, 5000); // Change slide every 5 seconds
+        var timer = setInterval(changeSlideAutomatically, interval);
+
+        function changeSlideAutomatically() {
+            currentImg = (currentImg + 1) % imgs.length;
+            changeSlide(currentImg);
+        }
+
+        // Email subscription form
+        var form = document.getElementById("newsletter-form");
+        var emailInput = document.getElementById("email-input");
+        var notification = document.getElementById("notification");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var email = emailInput.value;
+
+            if (validateEmail(email)) {
+                // Here you can add code to handle successful subscription
+                notification.textContent = "Subscription successful! Thank you.";
+                notification.style.color = "green";
+                emailInput.value = ""; // Clear input field
+            } else {
+                notification.textContent = "Please enter a valid email address.";
+                notification.style.color = "red";
+            }
+        });
+
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
     </script>
+
+    <script>
+        var imgs = document.querySelectorAll('.new-slider img');
+        var dots = document.querySelectorAll('.dot');
+        var currentImg = 0; // index of the first image 
+        const interval = 3000; // duration(speed) of the slide
+    
+        function changeSlide(n) {
+            for (var i = 0; i < imgs.length; i++) { // reset
+                imgs[i].classList.remove('active');
+                dots[i].classList.remove('active');
+            }
+    
+            currentImg = n;
+            imgs[currentImg].classList.add('active');
+            dots[currentImg].classList.add('active');
+        }
+    
+        var timer = setInterval(changeSlideAutomatically, interval);
+    
+        function changeSlideAutomatically() {
+            currentImg = (currentImg + 1) % imgs.length;
+            changeSlide(currentImg);
+        }
+    </script>
+
+
+    
 </body>
 </html>
