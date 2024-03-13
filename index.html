@@ -193,6 +193,8 @@
             font-weight: bold; /* Make title bold */
             margin-bottom: 5px; /* Add margin between title and paragraph */
         }
+
+
     </style>
 </head>
 <body>
@@ -238,13 +240,11 @@
             <span class="dot" onclick="changeSlide(4)"></span>
         </div>
 
-
         <div class="text-box">
             <h2>Our Mission</h2>
             <p>Our mission is to revolutionize asthma education for children worldwide. We strive to empower children with the knowledge and skills to effectively manage their asthma and lead active, fulfilling lives. Through innovative technology and compassionate support, we aim to make asthma education accessible, engaging, and impactful for every child.</p>
         </div>
 
-        
         <div class="text-box">
             <h2>SAGE's Features</h2>
             <div class="image-section">
@@ -287,99 +287,63 @@
         </div>
 
         <div class="text-box">
-            <h2>Our Team</h2>
-            <p>Meet the passionate individuals behind SAGE who are dedicated to improving the lives of children with asthma:</p>
-            <ul>
-                <li>Afia - Business Lead</li>
-                <li>Emily - UX Lead</li>
-                <li>Matthew - Tech Lead</li>
-                <li>Hyeri - Research Lead</li>
-            </ul>
-        </div>
-
-        <div class="text-box">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to learn more about SAGE? Feel free to reach out to us:</p>
-            <p>Email: info@sagewellness.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
-
-        <div class="footer-image">
-            <img src="Landscape Image.jpg" alt="Footer Image">
+            <h2>Try Out SAGE</h2>
+            <div class="new-slider">
+                <h3>SAGE in Action</h3>
+                <div class="slider">
+                    <img src="Mock6.png" alt="SAGE in Action">
+                    <img src="Mock7.png" alt="SAGE in Action">
+                    <img src="Mock8.png" alt="SAGE in Action">
+                </div>
+                <div class="navigation-button">
+                    <span class="dot active" onclick="changeSlide(0)"></span>
+                    <span class="dot" onclick="changeSlide(1)"></span>
+                    <span class="dot" onclick="changeSlide(2)"></span>
+                </div>
+            </div>
         </div>
     </div>
-    
+
     <footer>
-        <p>&copy; 2024 SAGE Wellness. All rights reserved. Last updated: <span id="lastUpdated">March 13, 2024</span></p>
+        &copy; 2024 SAGE. All rights reserved. Last updated: March 13, 2024.
     </footer>
 
     <script>
-        // JavaScript for slider
+        // JavaScript code
         let slideIndex = 0;
-        const slides = document.querySelectorAll('.slider img');
-        const dots = document.querySelectorAll('.dot');
+        showSlide(slideIndex);
 
         function changeSlide(n) {
-            slideIndex = n;
-            updateSlide();
+            showSlide(slideIndex += n);
         }
 
-        function updateSlide() {
-            slides.forEach((slide) => {
-                slide.classList.remove('active');
-            });
-            dots.forEach((dot) => {
-                dot.classList.remove('active');
-            });
-            slides[slideIndex].classList.add('active');
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slider img');
+            const dots = document.querySelectorAll('.dot');
+
+            if (n >= slides.length) {
+                slideIndex = 0;
+            }
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            slides.forEach(slide => slide.style.opacity = 0);
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[slideIndex].style.opacity = 1;
             dots[slideIndex].classList.add('active');
         }
 
-        function nextSlide() {
-            slideIndex++;
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
-            }
-            updateSlide();
-        }
-
-        function prevSlide() {
-            slideIndex--;
-            if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
-            updateSlide();
-        }
-
-        setInterval(nextSlide, 3000); // Auto slide every 3 seconds
-
-        // JavaScript for email subscription
+        // Form submission
         const form = document.getElementById('newsletter-form');
-        const emailInput = document.getElementById('email-input');
-        const notification = document.getElementById('notification');
-
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-            const email = emailInput.value;
-            if (isValidEmail(email)) {
-                notification.textContent = 'Email submitted successfully!';
-                notification.style.color = 'green';
-            } else {
-                notification.textContent = 'Please enter a valid email address';
-                notification.style.color = 'red';
-            }
-            form.reset(); // Clear the input field after submission
+            const emailInput = document.getElementById('email-input');
+            const notification = document.getElementById('notification');
+            notification.textContent = `Thank you for subscribing! We'll keep you updated via email: ${emailInput.value}`;
+            emailInput.value = '';
         });
-
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // JavaScript for last updated timestamp
-        const lastUpdated = document.getElementById('lastUpdated');
-        const currentDate = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        lastUpdated.textContent = currentDate.toLocaleDateString('en-US', options);
     </script>
 </body>
 </html>
