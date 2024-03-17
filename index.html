@@ -222,15 +222,13 @@
             font-size: 1rem;
             cursor: pointer;
             padding: 10px 20px;
+            position: absolute;
+            top: 10px; /* Adjust top position */
+            right: 10px; /* Adjust right position */
         }
 
         .menu-button:hover {
             background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
         }
 
         .dropdown-content {
@@ -263,15 +261,12 @@
 </head>
 <body>
     <header>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo">
-                <h1 class="title" style="display: inline-block;">Introducing SAGE</h1>
-            </div>
-            <div class="dropdown">
-                <button class="menu-button">Menu</button>
-                <div class="dropdown-content">
-                    <a href="https://ryanaeaston.github.io/SAGE/">Home</a>
+        <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo">
+        <h1 class="title">Introducing SAGE</h1>
+        <div class="dropdown">
+            <button class="menu-button">Menu</button>
+            <div class="dropdown-content">
+                <a href="https://ryanaeaston.github.io/SAGE/">Home</a>
                 </div>
             </div>
         </div>
