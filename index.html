@@ -221,9 +221,6 @@
             color: white;
             font-size: 1rem;
             cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
             padding: 10px 20px;
         }
 
@@ -243,6 +240,8 @@
             min-width: 120px;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
+            top: 50px;
+            right: 0;
         }
 
         .dropdown-content a {
@@ -264,12 +263,16 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo"> <!-- Replace "logo.png" with the path to logo image -->
-        <h1 class="title">Introducing SAGE</h1>
-        <div class="dropdown">
-            <button class="menu-button">Menu</button>
-            <div class="dropdown-content">
-                <a href="https://ryanaeaston.github.io/SAGE/">Home</a>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <img class="logo" src="Sage Child & Adult Circle.png" alt="SAGE Logo">
+                <h1 class="title" style="display: inline-block;">Introducing SAGE</h1>
+            </div>
+            <div class="dropdown">
+                <button class="menu-button">Menu</button>
+                <div class="dropdown-content">
+                    <a href="https://ryanaeaston.github.io/SAGE/">Home</a>
+                </div>
             </div>
         </div>
     </header>
