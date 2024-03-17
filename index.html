@@ -175,14 +175,13 @@
         
         .image-box {
             display: flex;
-            align-items: center; /* Align items vertically */
+            flex-direction: column; /* Stack items vertically */
             margin-bottom: 20px; /* Add margin between image-box elements */
         }
 
         .image-box img {
             max-width: 60px; /* Set a maximum width for the images */
             height: auto; /* Let the height adjust to maintain aspect ratio */
-            border: 1px solid #ccc; /* Add a border around the image */
             padding: 5px; /* Add padding to create space between the image and the border */
         }
         
@@ -190,7 +189,6 @@
             max-width: none; /* Remove maximum width for the second image */
             width: 225px; /* Set specific width for the second image */
             margin-left: 20px; /* Add space between the first image and the second image */
-            border: 1px solid #ccc; /* Add a border around the image */
             padding: 5px; /* Add padding to create space between the image and the border */
         }
 
