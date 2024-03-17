@@ -179,7 +179,7 @@
             margin-bottom: 20px; /* Add margin between image-box elements */
         }
 
-        .image-box img {
+        .image-box img:first-child {
             max-width: 60px; /* Set a maximum width for the images */
             height: auto; /* Let the height adjust to maintain aspect ratio */
             padding: 5px; /* Add padding to create space between the image and the border */
@@ -195,6 +195,18 @@
         
         .image-caption {
             flex: 1; /* Allow text to expand */
+        }
+
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            .image-box {
+                flex-direction: column; /* Arrange items in a column on mobile */
+                align-items: flex-start; /* Align items to the start (left) */
+            }
+        
+            .image-box img:first-child {
+                margin-bottom: 10px; /* Add margin between the icon and text on mobile */
+            }
         }
         
         .image-caption h3 {
