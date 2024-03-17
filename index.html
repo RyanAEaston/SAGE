@@ -146,28 +146,28 @@
         .email-form h2 {
             font-size: 1.2rem; /* Smaller font size for the email form header */
         }
-        .social-buttons {
+       .social-buttons {
             position: fixed; /* Fixed position */
-            top: 50%; /* 50% from the top */
+            top: 20px; /* Adjusted top position */
             right: 20px; /* 20px from the right */
-            transform: translateY(-50%); /* Adjust vertical position */
             z-index: 1000; /* Ensure buttons are above other content */
         }
-        .social-button {
-            display: block;
-            width: 40px;
-            height: 40px;
-            background-color: #8f9779; /* Sage Green */
-            color: #fff; /* White text color */
-            text-align: center;
-            line-height: 40px; /* Center vertically */
+        
+        .social-buttons a {
+            display: inline-block; /* Use inline-block to contain the image */
+            margin-right: 10px; /* Adjust margin between buttons */
+        }
+        
+        .social-buttons img {
+            width: 40px; /* Set width of the image */
+            height: 40px; /* Set height of the image */
             border-radius: 50%; /* Circular shape */
-            margin-bottom: 10px; /* Margin between buttons */
-            text-decoration: none; /* Remove default link underline */
         }
-        .social-button:hover {
-            background-color: #7e865f; /* Darker sage green variant */
+        
+        .social-buttons img:hover {
+            opacity: 0.7; /* Reduce opacity on hover */
         }
+
         .image-section {
             display: flex;
             flex-direction: column; /* Stack items vertically */
@@ -273,10 +273,11 @@
     </header>
 
     <div class="social-buttons">
-        <a class="social-button" href="#">F</a>
-        <a class="social-button" href="#">I</a>
-        <a class="social-button" href="#">X</a>
+        <a><img src="facebook_icon.png" alt="Facebook"></a>
+        <a><img src="instagram_icon.png" alt="Instagram"></a>
+        <a><img src="twitter_icon.png" alt="Twitter"></a>
     </div>
+
 
     <div class="container">
         <div class="email-form">
